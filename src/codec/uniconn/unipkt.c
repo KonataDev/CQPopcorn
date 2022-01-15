@@ -189,7 +189,7 @@ size_t _unipkt_write_argument(uint8_t *buffer,
   if (!buffer) return length;
 
   // argument name length
-  buffer[offset++] = 0x01;
+  buffer[offset++] = keylen;
   memcpy(buffer + offset, argument->key, keylen);
   offset += keylen;
 
