@@ -23,7 +23,8 @@ link_directories(
 ## Include headers
 # Add all the files needed to compile here
 include_directories(
-  src/include/
+  src/cqapi/include/
+  src/codec/uniconn/include/
 )
 
 ## Including cqapi
@@ -31,10 +32,18 @@ file(GLOB CQAPI_SRC
   src/cqapi/*.c
 )
 
+## Including codec
+file(GLOB CODEC_SRC
+  src/codec/json/*.c
+  src/codec/uniconn/*.c
+)
+
 ## Build and link
 # Add all the files needed to compile here
 add_executable(${PROJECT_NAME}
   ${CQAPI_SRC}
-  src/cqext.c
+  ${CODEC_SRC}
   src/main.c
 )
+
+set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX ".dll")
