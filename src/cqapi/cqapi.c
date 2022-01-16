@@ -1,8 +1,9 @@
 #include "cqapi.h"
+#include "cqimpl.h"
 
 __cqapi(int32_t) cqapi_send_private_msg(int32_t authcode, uint64_t account, const char *message) { return _virtual_send_private_msg(authcode, account, message); }
-__cqapi(int32_t) cqapi_send_group_msg(int32_t authcode, uint64_t group, const char* message){ return _virtual_send_private_msg(authcode, group, message); }
-__cqapi(int32_t) cqapi_send_discuss_msg(int32_t authcode, uint64_t discuss, const char* message){ return _virtual_send_private_msg(authcode, discuss, message); }
+__cqapi(int32_t) cqapi_send_group_msg(int32_t authcode, uint64_t group, const char* message){ return _virtual_send_group_msg(authcode, group, message); }
+__cqapi(int32_t) cqapi_send_discuss_msg(int32_t authcode, uint64_t discuss, const char* message){ return _virtual_send_discuss_msg(authcode, discuss, message); }
 __cqapi(int32_t) cqapi_delete_msg(int32_t authcode, uint64_t msgid) { return _virtual_delete_msg(authcode, msgid); }
 __cqapi(int32_t) cqapi_send_like_v2(int32_t authcode, uint64_t account, uint32_t times) { return _virtual_send_like_v2(authcode, account, times); }
 __cqapi(int32_t) cqapi_get_cookies_v2(int32_t authcode, const char *domain) { return _virtual_get_cookies_v2(authcode, domain); }
