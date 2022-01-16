@@ -21,19 +21,19 @@ typedef enum unipkt_version
 #define _typelen(type) type & 0xF
 typedef enum unipkt_type
 {
-  int8 = _mktype(1, 1),
-  int16 = _mktype(1, 2),
-  int32 = _mktype(1, 3),
-  int64 = _mktype(1, 4),
-  uint8 = _mktype(2, 1),
-  uint16 = _mktype(2, 2),
-  uint32 = _mktype(2, 3),
-  uint64 = _mktype(2, 4),
-  singlefl = _mktype(3, 4),
-  doublefl = _mktype(3, 8),
-  boolean = _mktype(3, 1),
-  charseq = _mktype(3, 2),
-  byteseq = _mktype(3, 3)
+  unipkt_int8 = _mktype(1, 1),
+  unipkt_int16 = _mktype(1, 2),
+  unipkt_int32 = _mktype(1, 3),
+  unipkt_int64 = _mktype(1, 4),
+  unipkt_uint8 = _mktype(2, 1),
+  unipkt_uint16 = _mktype(2, 2),
+  unipkt_uint32 = _mktype(2, 3),
+  unipkt_uint64 = _mktype(2, 4),
+  unipkt_singlefl = _mktype(3, 4),
+  unipkt_doublefl = _mktype(3, 8),
+  unipkt_boolean = _mktype(3, 1),
+  unipkt_charseq = _mktype(3, 2),
+  unipkt_byteseq = _mktype(3, 3)
 } unipkt_type_t;
 
 typedef struct unipkt_argument
@@ -102,14 +102,14 @@ unipkt_packet_t *unipkt_put_ex(unipkt_packet_t *packet, const char *name,
 unipkt_packet_t *unipkt_put_number(unipkt_packet_t *packet, const char *name,
                                    unipkt_type_t type, uint64_t payload);
 
-#define unipkt_put_int8(packet, name, payload) unipkt_put_number(packet, name, int8, payload)
-#define unipkt_put_int16(packet, name, payload) unipkt_put_number(packet, name, int16, payload)
-#define unipkt_put_int32(packet, name, payload) unipkt_put_number(packet, name, int32, payload)
-#define unipkt_put_int64(packet, name, payload) unipkt_put_number(packet, name, int64, payload)
-#define unipkt_put_uint8(packet, name, payload) unipkt_put_number(packet, name, uint8, payload)
-#define unipkt_put_uint16(packet, name, payload) unipkt_put_number(packet, name, uint16, payload)
-#define unipkt_put_uint32(packet, name, payload) unipkt_put_number(packet, name, uint32, payload)
-#define unipkt_put_uint64(packet, name, payload) unipkt_put_number(packet, name, uint64, payload)
+#define unipkt_put_int8(packet, name, payload) unipkt_put_number(packet, name, unipkt_int8, payload)
+#define unipkt_put_int16(packet, name, payload) unipkt_put_number(packet, name, unipkt_int16, payload)
+#define unipkt_put_int32(packet, name, payload) unipkt_put_number(packet, name, unipkt_int32, payload)
+#define unipkt_put_int64(packet, name, payload) unipkt_put_number(packet, name, unipkt_int64, payload)
+#define unipkt_put_uint8(packet, name, payload) unipkt_put_number(packet, name, unipkt_uint8, payload)
+#define unipkt_put_uint16(packet, name, payload) unipkt_put_number(packet, name, unipkt_uint16, payload)
+#define unipkt_put_uint32(packet, name, payload) unipkt_put_number(packet, name, unipkt_uint32, payload)
+#define unipkt_put_uint64(packet, name, payload) unipkt_put_number(packet, name, unipkt_uint64, payload)
 
 /**
  * @brief put a new argument to a packet

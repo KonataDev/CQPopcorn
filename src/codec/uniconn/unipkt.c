@@ -105,13 +105,13 @@ unipkt_packet_t *unipkt_put_number(unipkt_packet_t *packet, const char *name,
 unipkt_packet_t *unipkt_put_singlefl(unipkt_packet_t *packet,
                                      const char *name, float payload)
 {
-  return unipkt_put_ex(packet, name, (uint8_t *)&payload, _typelen(singlefl));
+  return unipkt_put_ex(packet, name, (uint8_t *)&payload, _typelen(unipkt_singlefl));
 }
 
 unipkt_packet_t *unipkt_put_doublefl(unipkt_packet_t *packet,
                                      const char *name, double payload)
 {
-  return unipkt_put_ex(packet, name, (uint8_t *)&payload, _typelen(doublefl));
+  return unipkt_put_ex(packet, name, (uint8_t *)&payload, _typelen(unipkt_doublefl));
 }
 
 unipkt_argument_t *_unipkt_new_argument(const char *name,
